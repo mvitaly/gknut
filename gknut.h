@@ -52,9 +52,9 @@
 /*! Convenience macro to make limiting values to l or greater easier. */
 #define LIM_FLOOR(x, l) ((x) < (l)) ? (l) : (x)
 
-#define CONFIG_NAME             "GKrellMBUPS"  /*!< Name for the configuration tab.    */
-#define MONITOR_CONFIG_KEYWORD  "gkrellmbups"  /*!< Configuration name.                */
-#define STYLE_NAME              "gkrellmbups"  /*!< style name to allow custom themes. */
+#define CONFIG_NAME             "Gknut"  /*!< Name for the configuration tab.    */
+#define MONITOR_CONFIG_KEYWORD  "gknut"  /*!< Configuration name.                */
+#define STYLE_NAME              "gknut"  /*!< style name to allow custom themes. */
 #define INSERT_BEFORE           MON_FS         /*!< Insert plugin before this monitor. */
 
 #define	MIN_GRID_RES            1              /*!< Constrain grid resolution, lower end. */ 
@@ -76,7 +76,7 @@
 #endif
 
 #define DEFAULT_HOST            "localhost"   /*!< address of the computer on which upsd is running */
-#define DEFAULT_PORT            2710          /*!< port upsd is accepting connections on            */
+#define DEFAULT_PORT            3305          /*!< port upsd is accepting connections on            */
 
 #define DEFAULT_CHARTHEIGHT     40            /*!< 40 is probably a good trade between detail and screen use */  
 

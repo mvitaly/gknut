@@ -52,11 +52,11 @@
  */
 
 #include<gkrellm/gkrellm.h>
-#include"gkrellmbups.h"
-#include"ups_connect.h"
+#include"gknut.h"
+#include"nut_connect.h"
 
 /*! Current plugin version number */
-#define GKRELLMBUPS_VERSION  "0.3"
+#define GKNUT_VERSION  "0.0.2"
 
 static GKrellMBUPS *bupsData; /*!< Dynamically allocated central data store.           */  
 static BUPSConfig  *config;   /*!< Configuration options                               */
@@ -73,8 +73,8 @@ static GtkWidget   *portWidget;  /*!< Service port spin button.            */
 /*! Descriptive text shown in the Help tab of the plugin configuration. */ 
 static gchar *helpText[] = 
 {
-    "GKrellMBUPS displays the status of a Belkin UPS. Note that you must install Belikn's\n",
-    "\"Sentry Bulldog\" software and have the Belkin uspd service running before this\n",
+    "gknut displays the status of a UPS monitored by NUT. Note that you must install NUT\n",
+    "software and have the nut service running before this\n",
     "plugin will work correctly. This software ",
     "<b>is not ",
     "supplied with this plugin!\n",
@@ -108,11 +108,11 @@ static gchar *helpText[] =
 
 /*! Plugin ownership and version information show in the About table of the plugin configuration. */
 static gchar aboutText[] = 
-"GKrellMBUPS " GKRELLMBUPS_VERSION "\n" \
-"GKrellM Belkin UPS Monitor plugin\n\n\n" \
-"Copyright (C) 2001 Chris Page\n" \
-"Chris <chris@starforge.co.uk>\n" \
-"http://www.starforge.co.uk/gkrellm/\n\n" \
+"gknut " GKNUT_VERSION "\n" \
+"GKrellM NUT UPS Monitor plugin\n\n\n" \
+"Copyright (C) 2002 Vitaly Polonetsky\n" \
+"Vitaly Polonetsky <m_vitaly@topixoft.com>\n" \
+"http://<website here>/gknut/\n\n" \
 "Released under the GPL.\n";
 
 /*! chart condig names for the voltage chart data entries     */

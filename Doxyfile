@@ -3,7 +3,7 @@
 #---------------------------------------------------------------------------
 # General configuration options
 #---------------------------------------------------------------------------
-PROJECT_NAME           = gkrell_bups
+PROJECT_NAME           = gknut
 PROJECT_NUMBER         = 1
 OUTPUT_DIRECTORY       = docs
 OUTPUT_LANGUAGE        = English
@@ -52,10 +52,10 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = ups_connect.c \
-                         ups_connect.h \
-                         gkrellmbups.c \
-                         gkrellmbups.h
+INPUT                  = nut_connect.c \
+                         nut_connect.h \
+                         gknut.c \
+                         gknut.h
 FILE_PATTERNS          = 
 RECURSIVE              = NO
 EXCLUDE                = 

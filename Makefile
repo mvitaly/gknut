@@ -1,12 +1,12 @@
-# Makefiile based on Makefile from gkrellweather by Franky Lam <franky@frankylam.com>
-# Modified for gkrellmbups by Chris
+# Makefiile based on Makefile from gkrellmbups by Chris
+# Modified for gknut by Vitaly
 
 # Package information
-PACKAGE   = gkrellmbups
-VERSION   = 0.3
+PACKAGE   = gknut
+VERSION   = 0.0.2
 DIST      = $(PACKAGE)-$(VERSION)
 DISTFILES = ChangeLog COPYING Doxyfile INSTALL Makefile README \
-            gkrellmbups.c gkrellmbups.h ups_connect.c ups_connect.h
+            gknut.c gknut.h nut_connect.c nut_connect.h
 
 # Non-UK users should uncomment the next line
 # MAINS_MIN = -DMAINS_MIN=90
@@ -17,7 +17,8 @@ MKDIR     = mkdir
 RM        = rm -f
 RMRF      = rm -rf
 TAR       = tar
-GZIP      = gzip
+GZIP      = gzip -c
+BZIP2     = bzip2 -c
 CD        = cd
 DOXYGEN   = doxygen
 
@@ -37,16 +38,16 @@ LFLAGS = -shared
 
 CC = gcc $(CFLAGS) $(FLAGS)
 
-OBJS = gkrellmbups.o ups_connect.o
+OBJS = gknut.o nut_connect.o
 
 grellmbups.so: $(OBJS)
-	$(CC) $(OBJS) -o gkrellmbups.so $(LFLAGS) $(LIBS) 
+	$(CC) $(OBJS) -o gknut.so $(LFLAGS) $(LIBS) 
 
 clean:
-	$(RMRF) *.o core *.so* *.bak *~ $(DIST) $(DIST).tar $(DIST).tar.gz
+	$(RMRF) *.o core *.so* *.bak *~ $(DIST) $(DIST).tar $(DIST).tar.gz $(DIST).tar.bz2
 
-ups_connect.o: ups_connect.c ups_connect.h
-gkrellmbups.o: gkrellmbups.c gkrellmbups.c ups_connect.h
+nut_connect.o: nut_connect.c nut_connect.h
+gknut.o: gknut.c gknut.c nut_connect.h
 
 documentation::
 	if [ -e Doxyfile ] ; then \
@@ -55,22 +56,22 @@ documentation::
 
 install:
 	if [ -d /usr/lib/gkrellm/plugins/ ] ; then \
-		$(INSTALL) -c -s -m 644 gkrellmbups.so /usr/lib/gkrellm/plugins/ ; \
+		$(INSTALL) -c -s -m 644 gknut.so /usr/lib/gkrellm/plugins/ ; \
 	elif [ -d /usr/share/gkrellm/plugins/ ] ; then \
-		$(INSTALL) -c -s -m 644 gkrellmbups.so /usr/share/gkrellm/plugins/ ; \
+		$(INSTALL) -c -s -m 644 gknut.so /usr/share/gkrellm/plugins/ ; \
 	elif [ -d /usr/local/lib/gkrellm/plugins/ ] ; then \
-		$(INSTALL) -c -s -m 644 gkrellmbups.so /usr/local/lib/gkrellm/plugins/ ; \
+		$(INSTALL) -c -s -m 644 gknut.so /usr/local/lib/gkrellm/plugins/ ; \
 	elif [ -d /usr/lib/gkrellm/plugins/ ] ; then \
-		$(INSTALL) -c -s -m 644 gkrellmbups.so /usr/lib/gkrellm/plugins/ ; \
+		$(INSTALL) -c -s -m 644 gknut.so /usr/lib/gkrellm/plugins/ ; \
 	else \
-		$(INSTALL) -D -c -s -m 644 gkrellmbups.so /usr/lib/gkrellm/plugins/gkrellmbups.so ; \
+		$(INSTALL) -D -c -s -m 644 gknut.so /usr/lib/gkrellm/plugins/gkrellmbups.so ; \
 	fi
 
 uninstall:
-	rm -f /usr/lib/gkrellm/plugins/gkrellmbups.so
-	rm -f /usr/share/gkrellm/plugins/gkrellmbups.so
-	rm -f /usr/local/lib/gkrellm/plugins/gkrellmbups.so
-	rm -f /usr/lib/gkrellm/plugins/gkrellmbups.so
+	rm -f /usr/lib/gkrellm/plugins/gknut.so
+	rm -f /usr/share/gkrellm/plugins/gknut.so
+	rm -f /usr/local/lib/gkrellm/plugins/gknut.so
+	rm -f /usr/lib/gkrellm/plugins/gknut.so
 
 dist::
 	$(RMRF) $(DIST) $(DIST).tar $(DIST).tar.gz
@@ -81,5 +82,7 @@ dist::
 	if [ -d $$I ]; then $(INSTALL) -D -m 0555 -d $$I $(DIST)/$$I; fi; fi; fi ; \
 	done
 	$(TAR) -cf $(DIST).tar $(DIST)
-	$(GZIP) $(DIST).tar
+	$(GZIP) $(DIST).tar > $(DIST).tar.gz
+	$(BZIP2) $(DIST).tar > $(DIST).tar.bz2
+	$(RM) $(DIST).tar
 	$(RMRF) $(DIST)

@@ -1,12 +1,21 @@
+  GKrellM NUT (Network UPS Tools) Plugin
+  #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+Author: Vitaly Polonetsky (m_vitaly@topixoft.com)
+
+Copyright (c) 2002 by Vitaly Polonetsky.
+Released as free software under the terms of the GNU General Public License,
+read the COPYING file for more information.
+
 Legal part:
 At 05/04/2002 I've changed Version 0.3 of "GKrellM Belkin UPS Plugin" by Chris Page (chris@starforge.co.uk) to be able to connect to NUT.
- The NUT client part I got from the NUT 0.50.0 package.
+To obtain the source package of "GKrellM Belkin UPS Plugin" goto: http://www.starforge.co.uk/gkrellm/
 
 Requirements:
- * NUT of some version (not sure) + source
+ * NUT of some version (not sure) + development headers
  * Supported UPS
- * ln -s /yourNUTsrctree ./nut
 
 TODO:
- * Monitoring of multiple upses/hosts
-
+ * Add more monitoring Variables: Teperature, Voltages (battery/output), etc. where supported
+ * Multiple UPS status handling
+ * Monitoring multiple upses/hosts (far future)
