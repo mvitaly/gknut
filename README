@@ -1,0 +1,12 @@
+Legal part:
+At 05/04/2002 I've changed Version 0.3 of "GKrellM Belkin UPS Plugin" by Chris Page (chris@starforge.co.uk) to be able to connect to NUT.
+ The NUT client part I got from the NUT 0.50.0 package.
+
+Requirements:
+ * NUT of some version (not sure) + source
+ * Supported UPS
+ * ln -s /yourNUTsrctree ./nut
+
+TODO:
+ * Monitoring of multiple upses/hosts
+

@@ -1,0 +1,17 @@
+0.3 (5 Jan 2002)
+=-=-=-=-=-=-=-=-
+
+    * Added default MAINS_MIN control for non-UK users.
+	
+0.2 (28 Dec 2001)
+=-=-=-=-=-=-=-=-=
+
+    * Added user control over the mains voltage offset (see the docs for
+      why this is a Good Thing).
+
+0.1 (26 Dec 2001)
+=-=-=-=-=-=-=-=-=
+
+    * Initial release version.
+
+
